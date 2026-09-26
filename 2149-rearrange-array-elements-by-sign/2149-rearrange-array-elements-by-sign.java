@@ -14,15 +14,15 @@ class Solution {
             }
         }
         x=0;
-        y=0;
+       y=0;
         for(int j=0;j<nums.length;j+=2){
 nums[j]=positive[x];
 x++;
-        }
-        for(int k=1;k<nums.length;k+=2){
-nums[k]=negative[y];
-y++;
-        }
-        return nums; 
+if(j+1<nums.length){
+nums[j+1]=negative[y];
+y++; 
+    }
+}
+return nums;
     }
 }
