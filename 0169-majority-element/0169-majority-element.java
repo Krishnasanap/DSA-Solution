@@ -1,16 +1,27 @@
 class Solution {
     public int majorityElement(int[] nums) {
-      // krushna sanap
-      //this solution is solved using hashmap
-      HashMap<Integer,Integer> map=new HashMap<>();
+        //this is  my solution using mores voting algorithm
+      int ele=0;
+      int count=0;
       for(int i=0;i<nums.length;i++){
-        map.put(nums[i],map.getOrDefault(nums[i],0)+1);
-      }
-      for(Integer key : map.keySet()){
-        if(map.get(key)>nums.length/2){
-            return key;
+        if(count==0){
+            count++;
+            ele=nums[i];
+        }else if(ele==nums[i]){
+            count++;
+        }else{
+            count--;
         }
-      }  
+      }
+      int cn=0;  
+      for(int j=0;j<nums.length;j++){
+if(nums[j]==ele){
+    cn++;
+}
+      }
+      if(cn>nums.length/2){
+        return ele;
+      }
       return -1;
     }
 }
